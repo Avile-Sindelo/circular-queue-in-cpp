@@ -83,8 +83,18 @@ char CQueue::dequeue(){
 
 
 int main(){
+	//Create an instance of the class - an object
 	CQueue circle;	
-	
+	//Try to dequeue from an empty queue
+	circle.dequeue();
+	//Enqueue 5 characters - the word 'Bravo'
+	circle.enqueue('B');
+	circle.enqueue('r');
+	circle.enqueue('a');
+	circle.enqueue('v');
+	circle.enqueue('o');
+	//remove the first character - 'B'
+	circle.dequeue();
 	
 	
 	return 0;
