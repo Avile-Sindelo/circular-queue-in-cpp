@@ -32,16 +32,30 @@ bool CQueue::isEmpty(){
 //ENQUEUE
 void CQueue::enqueue(char character){
 	//if the queue is full
+	if(isFull()){
 		//cannot enqueue
-	//else if the queue is empty
+		cout << "Cannot enqueue - the circular queue is full" << endl;
+	} else if(isEmpty()){
 		//front = back = 0;
+		front = 0;
+		back = 0;
+		
 		//Add the new character at queue[back]
-	//else (NOT empty && NOT full)
+		queue[back] = character;
+	} else { // NOT empty && NOT full
 		//Increment the Back
-		//if Back == MAX
-			//Back = 0
+		back++;
+		//if Back equals to MAX, restart the Back variable
+		if(back == MAX){
+			back = 0;
+		}
+		
 		//Add the new character at queue[back]
+		queue[back] = character;
 		//Increment the Size by 1
+		size++;
+	}
+		
 }
 
 //DEQUEUE
