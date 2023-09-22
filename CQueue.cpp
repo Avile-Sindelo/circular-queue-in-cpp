@@ -54,22 +54,31 @@ void CQueue::enqueue(char character){
 		queue[back] = character;
 		//Increment the Size by 1
 		size++;
-	}
-		
+	}	
 }
 
 //DEQUEUE
 char CQueue::dequeue(){
 	//if the queue is empty
+	if(isEmpty()){
 		//CANNOT dequeue - queue is empty
-	//else  (There's something in the queue)
+		cout << " Cannot dequeue - queue is empty" << endl;
+	} else { //There's something in the queue
 		//declare a variable to hold the dequeued character
+		char value;
 		//store the value of queue[front] into the new variable declared above
+		value = queue[front];
 		//increment front by 1
-		//if front==MAX
-			//front = 0
+		front++;
+		//if front==MAX, restart the front variable
+		if(front == MAX){
+			front = 0;
+		}
 		//Decrement the size by 1
+		size--;
 		//Return the dequeued variable
+		return value;
+	}		
 }
 
 
